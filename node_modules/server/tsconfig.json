@@ -11,13 +11,12 @@
       "node"
     ],
     "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
     "outDir": "./dist",
   },
   "include": [
     "src",
     "drizzle.config.ts"
-, "../web/src/lib/auth-client.ts"  ],
+  ],
   "exclude": [
     "node_modules"
   ]
