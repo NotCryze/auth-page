@@ -1,0 +1,2140 @@
+export declare const authClient: {
+    signIn: {
+        social: <FetchOptions extends {
+            mode?: RequestMode | undefined;
+            cache?: RequestCache | undefined;
+            credentials?: RequestCredentials | undefined;
+            redirect?: RequestRedirect | undefined;
+            method?: string | undefined;
+            headers?: (HeadersInit & (HeadersInit | {
+                accept: "application/json" | "text/plain" | "application/octet-stream";
+                "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+                authorization: "Bearer" | "Basic";
+            })) | undefined;
+            integrity?: string | undefined;
+            keepalive?: boolean | undefined;
+            priority?: RequestPriority | undefined;
+            referrer?: string | undefined;
+            referrerPolicy?: ReferrerPolicy | undefined;
+            signal?: (AbortSignal | null) | undefined;
+            window?: null | undefined;
+            onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+            onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+            onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+            onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+            hookOptions?: {
+                cloneResponse?: boolean;
+            } | undefined;
+            timeout?: number | undefined;
+            customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+            plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+            baseURL?: string | undefined;
+            throw?: boolean | undefined;
+            auth?: ({
+                type: "Bearer";
+                token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+            } | {
+                type: "Basic";
+                username: string | (() => string | undefined) | undefined;
+                password: string | (() => string | undefined) | undefined;
+            } | {
+                type: "Custom";
+                prefix: string | (() => string | undefined) | undefined;
+                value: string | (() => string | undefined) | undefined;
+            }) | undefined;
+            body?: (Partial<{
+                provider: unknown;
+                callbackURL?: string | undefined;
+                newUserCallbackURL?: string | undefined;
+                errorCallbackURL?: string | undefined;
+                disableRedirect?: boolean | undefined;
+                idToken?: {
+                    token: string;
+                    nonce?: string | undefined;
+                    accessToken?: string | undefined;
+                    refreshToken?: string | undefined;
+                    expiresAt?: number | undefined;
+                } | undefined;
+                scopes?: string[] | undefined;
+                requestSignUp?: boolean | undefined;
+                loginHint?: string | undefined;
+            }> & Record<string, any>) | undefined;
+            query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+            params?: Record<string, any> | undefined;
+            duplex?: "full" | "half" | undefined;
+            jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+            retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+            retryAttempt?: number | undefined;
+            output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+            errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+            disableValidation?: boolean | undefined;
+        }>(data_0: import("better-auth").Prettify<{
+            provider: unknown;
+            callbackURL?: string | undefined;
+            newUserCallbackURL?: string | undefined;
+            errorCallbackURL?: string | undefined;
+            disableRedirect?: boolean | undefined;
+            idToken?: {
+                token: string;
+                nonce?: string | undefined;
+                accessToken?: string | undefined;
+                refreshToken?: string | undefined;
+                expiresAt?: number | undefined;
+            } | undefined;
+            scopes?: string[] | undefined;
+            requestSignUp?: boolean | undefined;
+            loginHint?: string | undefined;
+        } & {
+            fetchOptions?: FetchOptions | undefined;
+        }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<NonNullable<{
+            redirect: boolean;
+            token: string;
+            url: undefined;
+            user: {
+                id: string;
+                email: string;
+                name: string;
+                image: string | null | undefined;
+                emailVerified: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } | {
+            url: string;
+            redirect: boolean;
+        }>, {
+            code?: string;
+            message?: string;
+        }, FetchOptions["throw"] extends true ? true : false>>;
+    };
+} & {
+    signOut: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        query?: Record<string, any> | undefined;
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        success: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    signIn: {
+        email: <FetchOptions extends {
+            mode?: RequestMode | undefined;
+            cache?: RequestCache | undefined;
+            credentials?: RequestCredentials | undefined;
+            redirect?: RequestRedirect | undefined;
+            method?: string | undefined;
+            headers?: (HeadersInit & (HeadersInit | {
+                accept: "application/json" | "text/plain" | "application/octet-stream";
+                "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+                authorization: "Bearer" | "Basic";
+            })) | undefined;
+            integrity?: string | undefined;
+            keepalive?: boolean | undefined;
+            priority?: RequestPriority | undefined;
+            referrer?: string | undefined;
+            referrerPolicy?: ReferrerPolicy | undefined;
+            signal?: (AbortSignal | null) | undefined;
+            window?: null | undefined;
+            onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+            onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+            onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+            onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+            hookOptions?: {
+                cloneResponse?: boolean;
+            } | undefined;
+            timeout?: number | undefined;
+            customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+            plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+            baseURL?: string | undefined;
+            throw?: boolean | undefined;
+            auth?: ({
+                type: "Bearer";
+                token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+            } | {
+                type: "Basic";
+                username: string | (() => string | undefined) | undefined;
+                password: string | (() => string | undefined) | undefined;
+            } | {
+                type: "Custom";
+                prefix: string | (() => string | undefined) | undefined;
+                value: string | (() => string | undefined) | undefined;
+            }) | undefined;
+            body?: (Partial<{
+                email: string;
+                password: string;
+                callbackURL?: string | undefined;
+                rememberMe?: boolean | undefined;
+            }> & Record<string, any>) | undefined;
+            query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+            params?: Record<string, any> | undefined;
+            duplex?: "full" | "half" | undefined;
+            jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+            retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+            retryAttempt?: number | undefined;
+            output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+            errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+            disableValidation?: boolean | undefined;
+        }>(data_0: import("better-auth").Prettify<{
+            email: string;
+            password: string;
+            callbackURL?: string | undefined;
+            rememberMe?: boolean | undefined;
+        } & {
+            fetchOptions?: FetchOptions | undefined;
+        }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+            redirect: boolean;
+            token: string;
+            url: string | undefined;
+            user: {
+                id: string;
+                email: string;
+                name: string;
+                image: string | null | undefined;
+                emailVerified: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        }, {
+            code?: string;
+            message?: string;
+        }, FetchOptions["throw"] extends true ? true : false>>;
+    };
+} & {
+    forgetPassword: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            email: string;
+            redirectTo?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        email: string;
+        redirectTo?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    resetPassword: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            newPassword: string;
+            token?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<{
+            token?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        newPassword: string;
+        token?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    verifyEmail: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<{
+            token: string;
+            callbackURL?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        query: {
+            token: string;
+            callbackURL?: string | undefined;
+        };
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<NonNullable<void | {
+        status: boolean;
+        user: {
+            id: string;
+            email: string;
+            name: string;
+            image: string | null | undefined;
+            emailVerified: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+        };
+    } | {
+        status: boolean;
+        user: null;
+    }>, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    sendVerificationEmail: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            email: string;
+            callbackURL?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        email: string;
+        callbackURL?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    changeEmail: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            newEmail: string;
+            callbackURL?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        newEmail: string;
+        callbackURL?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    changePassword: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            newPassword: string;
+            currentPassword: string;
+            revokeOtherSessions?: boolean | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        newPassword: string;
+        currentPassword: string;
+        revokeOtherSessions?: boolean | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        token: string | null;
+        user: {
+            id: string;
+            email: string;
+            name: string;
+            image: string | null | undefined;
+            emailVerified: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+        };
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    deleteUser: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            callbackURL?: string | undefined;
+            password?: string | undefined;
+            token?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        callbackURL?: string | undefined;
+        password?: string | undefined;
+        token?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        success: boolean;
+        message: string;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    resetPassword: {
+        ":token": <FetchOptions extends {
+            mode?: RequestMode | undefined;
+            cache?: RequestCache | undefined;
+            credentials?: RequestCredentials | undefined;
+            redirect?: RequestRedirect | undefined;
+            method?: string | undefined;
+            headers?: (HeadersInit & (HeadersInit | {
+                accept: "application/json" | "text/plain" | "application/octet-stream";
+                "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+                authorization: "Bearer" | "Basic";
+            })) | undefined;
+            integrity?: string | undefined;
+            keepalive?: boolean | undefined;
+            priority?: RequestPriority | undefined;
+            referrer?: string | undefined;
+            referrerPolicy?: ReferrerPolicy | undefined;
+            signal?: (AbortSignal | null) | undefined;
+            window?: null | undefined;
+            onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+            onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+            onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+            onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+            hookOptions?: {
+                cloneResponse?: boolean;
+            } | undefined;
+            timeout?: number | undefined;
+            customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+            plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+            baseURL?: string | undefined;
+            throw?: boolean | undefined;
+            auth?: ({
+                type: "Bearer";
+                token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+            } | {
+                type: "Basic";
+                username: string | (() => string | undefined) | undefined;
+                password: string | (() => string | undefined) | undefined;
+            } | {
+                type: "Custom";
+                prefix: string | (() => string | undefined) | undefined;
+                value: string | (() => string | undefined) | undefined;
+            }) | undefined;
+            body?: undefined;
+            query?: (Partial<{
+                callbackURL: string;
+            }> & Record<string, any>) | undefined;
+            params?: {
+                token: string;
+            } | undefined;
+            duplex?: "full" | "half" | undefined;
+            jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+            retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+            retryAttempt?: number | undefined;
+            output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+            errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+            disableValidation?: boolean | undefined;
+        }>(data_0: import("better-auth").Prettify<{
+            query: {
+                callbackURL: string;
+            };
+            fetchOptions?: FetchOptions | undefined;
+        }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<never, {
+            code?: string;
+            message?: string;
+        }, FetchOptions["throw"] extends true ? true : false>>;
+    };
+} & {
+    requestPasswordReset: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            email: string;
+            redirectTo?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        email: string;
+        redirectTo?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+        message: string;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    resetPassword: {
+        ":token": <FetchOptions extends {
+            mode?: RequestMode | undefined;
+            cache?: RequestCache | undefined;
+            credentials?: RequestCredentials | undefined;
+            redirect?: RequestRedirect | undefined;
+            method?: string | undefined;
+            headers?: (HeadersInit & (HeadersInit | {
+                accept: "application/json" | "text/plain" | "application/octet-stream";
+                "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+                authorization: "Bearer" | "Basic";
+            })) | undefined;
+            integrity?: string | undefined;
+            keepalive?: boolean | undefined;
+            priority?: RequestPriority | undefined;
+            referrer?: string | undefined;
+            referrerPolicy?: ReferrerPolicy | undefined;
+            signal?: (AbortSignal | null) | undefined;
+            window?: null | undefined;
+            onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+            onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+            onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+            onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+            hookOptions?: {
+                cloneResponse?: boolean;
+            } | undefined;
+            timeout?: number | undefined;
+            customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+            plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+            baseURL?: string | undefined;
+            throw?: boolean | undefined;
+            auth?: ({
+                type: "Bearer";
+                token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+            } | {
+                type: "Basic";
+                username: string | (() => string | undefined) | undefined;
+                password: string | (() => string | undefined) | undefined;
+            } | {
+                type: "Custom";
+                prefix: string | (() => string | undefined) | undefined;
+                value: string | (() => string | undefined) | undefined;
+            }) | undefined;
+            body?: undefined;
+            query?: (Partial<{
+                callbackURL: string;
+            }> & Record<string, any>) | undefined;
+            params?: {
+                token: string;
+            } | undefined;
+            duplex?: "full" | "half" | undefined;
+            jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+            retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+            retryAttempt?: number | undefined;
+            output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+            errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+            disableValidation?: boolean | undefined;
+        }>(data_0: import("better-auth").Prettify<{
+            query: {
+                callbackURL: string;
+            };
+            fetchOptions?: FetchOptions | undefined;
+        }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<never, {
+            code?: string;
+            message?: string;
+        }, FetchOptions["throw"] extends true ? true : false>>;
+    };
+} & {
+    revokeSession: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            token: string;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        token: string;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    revokeSessions: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        query?: Record<string, any> | undefined;
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    revokeOtherSessions: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        query?: Record<string, any> | undefined;
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    linkSocial: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            provider: unknown;
+            callbackURL?: string | undefined;
+            idToken?: {
+                token: string;
+                nonce?: string | undefined;
+                accessToken?: string | undefined;
+                refreshToken?: string | undefined;
+                scopes?: string[] | undefined;
+            } | undefined;
+            requestSignUp?: boolean | undefined;
+            scopes?: string[] | undefined;
+            errorCallbackURL?: string | undefined;
+            disableRedirect?: boolean | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        provider: unknown;
+        callbackURL?: string | undefined;
+        idToken?: {
+            token: string;
+            nonce?: string | undefined;
+            accessToken?: string | undefined;
+            refreshToken?: string | undefined;
+            scopes?: string[] | undefined;
+        } | undefined;
+        requestSignUp?: boolean | undefined;
+        scopes?: string[] | undefined;
+        errorCallbackURL?: string | undefined;
+        disableRedirect?: boolean | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        url: string;
+        redirect: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    listAccounts: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        query?: Record<string, any> | undefined;
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        id: string;
+        providerId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        accountId: string;
+        scopes: string[];
+    }[], {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    deleteUser: {
+        callback: <FetchOptions extends {
+            mode?: RequestMode | undefined;
+            cache?: RequestCache | undefined;
+            credentials?: RequestCredentials | undefined;
+            redirect?: RequestRedirect | undefined;
+            method?: string | undefined;
+            headers?: (HeadersInit & (HeadersInit | {
+                accept: "application/json" | "text/plain" | "application/octet-stream";
+                "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+                authorization: "Bearer" | "Basic";
+            })) | undefined;
+            integrity?: string | undefined;
+            keepalive?: boolean | undefined;
+            priority?: RequestPriority | undefined;
+            referrer?: string | undefined;
+            referrerPolicy?: ReferrerPolicy | undefined;
+            signal?: (AbortSignal | null) | undefined;
+            window?: null | undefined;
+            onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+            onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+            onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+            onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+            hookOptions?: {
+                cloneResponse?: boolean;
+            } | undefined;
+            timeout?: number | undefined;
+            customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+            plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+            baseURL?: string | undefined;
+            throw?: boolean | undefined;
+            auth?: ({
+                type: "Bearer";
+                token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+            } | {
+                type: "Basic";
+                username: string | (() => string | undefined) | undefined;
+                password: string | (() => string | undefined) | undefined;
+            } | {
+                type: "Custom";
+                prefix: string | (() => string | undefined) | undefined;
+                value: string | (() => string | undefined) | undefined;
+            }) | undefined;
+            body?: undefined;
+            query?: (Partial<{
+                token: string;
+                callbackURL?: string | undefined;
+            }> & Record<string, any>) | undefined;
+            params?: Record<string, any> | undefined;
+            duplex?: "full" | "half" | undefined;
+            jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+            retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+            retryAttempt?: number | undefined;
+            output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+            errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+            disableValidation?: boolean | undefined;
+        }>(data_0: import("better-auth").Prettify<{
+            query: {
+                token: string;
+                callbackURL?: string | undefined;
+            };
+            fetchOptions?: FetchOptions | undefined;
+        }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+            success: boolean;
+            message: string;
+        }, {
+            code?: string;
+            message?: string;
+        }, FetchOptions["throw"] extends true ? true : false>>;
+    };
+} & {
+    unlinkAccount: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            providerId: string;
+            accountId?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        providerId: string;
+        accountId?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    refreshToken: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            providerId: string;
+            accountId?: string | undefined;
+            userId?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        providerId: string;
+        accountId?: string | undefined;
+        userId?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<any, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    getAccessToken: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            providerId: string;
+            accountId?: string | undefined;
+            userId?: string | undefined;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        providerId: string;
+        accountId?: string | undefined;
+        userId?: string | undefined;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        accessToken: string;
+        accessTokenExpiresAt: Date | undefined;
+        scopes: string[];
+        idToken: string | undefined;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    accountInfo: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<{
+            accountId: string;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0: import("better-auth").Prettify<{
+        accountId: string;
+    } & {
+        fetchOptions?: FetchOptions | undefined;
+    }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        user: packages_core_dist_oauth2.OAuth2UserInfo;
+        data: Record<string, any>;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    signUp: {
+        email: <FetchOptions extends {
+            mode?: RequestMode | undefined;
+            cache?: RequestCache | undefined;
+            credentials?: RequestCredentials | undefined;
+            redirect?: RequestRedirect | undefined;
+            method?: string | undefined;
+            headers?: (HeadersInit & (HeadersInit | {
+                accept: "application/json" | "text/plain" | "application/octet-stream";
+                "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+                authorization: "Bearer" | "Basic";
+            })) | undefined;
+            integrity?: string | undefined;
+            keepalive?: boolean | undefined;
+            priority?: RequestPriority | undefined;
+            referrer?: string | undefined;
+            referrerPolicy?: ReferrerPolicy | undefined;
+            signal?: (AbortSignal | null) | undefined;
+            window?: null | undefined;
+            onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+            onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+            onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+            onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+            hookOptions?: {
+                cloneResponse?: boolean;
+            } | undefined;
+            timeout?: number | undefined;
+            customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+            plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+            baseURL?: string | undefined;
+            throw?: boolean | undefined;
+            auth?: ({
+                type: "Bearer";
+                token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+            } | {
+                type: "Basic";
+                username: string | (() => string | undefined) | undefined;
+                password: string | (() => string | undefined) | undefined;
+            } | {
+                type: "Custom";
+                prefix: string | (() => string | undefined) | undefined;
+                value: string | (() => string | undefined) | undefined;
+            }) | undefined;
+            body?: (Partial<{
+                name: string;
+                email: string;
+                password: string;
+                image?: string;
+                callbackURL?: string;
+                rememberMe?: boolean;
+            }> & Record<string, any>) | undefined;
+            query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+            params?: Record<string, any> | undefined;
+            duplex?: "full" | "half" | undefined;
+            jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+            retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+            retryAttempt?: number | undefined;
+            output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+            errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+            disableValidation?: boolean | undefined;
+        }>(data_0: import("better-auth").Prettify<{
+            email: string;
+            name: string;
+            password: string;
+            image?: string;
+            callbackURL?: string;
+            fetchOptions?: FetchOptions | undefined;
+        }>, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<NonNullable<{
+            token: null;
+            user: {
+                id: string;
+                email: string;
+                name: string;
+                image: string | null | undefined;
+                emailVerified: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } | {
+            token: string;
+            user: {
+                id: string;
+                email: string;
+                name: string;
+                image: string | null | undefined;
+                emailVerified: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        }>, {
+            code?: string;
+            message?: string;
+        }, FetchOptions["throw"] extends true ? true : false>>;
+    };
+} & {
+    updateUser: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: (Partial<Partial<{}> & {
+            name?: string;
+            image?: string;
+        }> & Record<string, any>) | undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        image?: string | null;
+        name?: string;
+        fetchOptions?: FetchOptions | undefined;
+    } & Partial<{}>> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        status: boolean;
+    }, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    listSessions: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<Record<string, any>> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        query?: Record<string, any> | undefined;
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<import("better-auth").Prettify<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        userId: string;
+        expiresAt: Date;
+        token: string;
+        ipAddress?: string | null | undefined | undefined;
+        userAgent?: string | null | undefined | undefined;
+    }>[], {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    getSession: <FetchOptions extends {
+        mode?: RequestMode | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials | undefined;
+        redirect?: RequestRedirect | undefined;
+        method?: string | undefined;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRequest?: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+        onResponse?: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+        onSuccess?: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+        onError?: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl?: import("@better-fetch/fetch").FetchEsque | undefined;
+        plugins?: import("@better-fetch/fetch").BetterFetchPlugin[] | undefined;
+        baseURL?: string | undefined;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: undefined;
+        query?: (Partial<{
+            disableCookieCache?: unknown;
+            disableRefresh?: unknown;
+        }> & Record<string, any>) | undefined;
+        params?: Record<string, any> | undefined;
+        duplex?: "full" | "half" | undefined;
+        jsonParser?: ((text: string) => Promise<any> | any) | undefined;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }>(data_0?: import("better-auth").Prettify<{
+        query?: {
+            disableCookieCache?: unknown;
+            disableRefresh?: unknown;
+        } | undefined;
+        fetchOptions?: FetchOptions | undefined;
+    }> | undefined, data_1?: FetchOptions | undefined) => Promise<import("@better-fetch/fetch").BetterFetchResponse<{
+        user: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            email: string;
+            emailVerified: boolean;
+            name: string;
+            image?: string | null | undefined;
+        };
+        session: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            userId: string;
+            expiresAt: Date;
+            token: string;
+            ipAddress?: string | null | undefined;
+            userAgent?: string | null | undefined;
+        };
+    } | null, {
+        code?: string;
+        message?: string;
+    }, FetchOptions["throw"] extends true ? true : false>>;
+} & {
+    useSession: () => {
+        data: {
+            user: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                email: string;
+                emailVerified: boolean;
+                name: string;
+                image?: string | null | undefined;
+            };
+            session: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                userId: string;
+                expiresAt: Date;
+                token: string;
+                ipAddress?: string | null | undefined;
+                userAgent?: string | null | undefined;
+            };
+        } | null;
+        isPending: boolean;
+        isRefetching: boolean;
+        error: import("@better-fetch/fetch").BetterFetchError | null;
+        refetch: (queryParams?: {
+            query?: import("better-auth").SessionQueryParams;
+        }) => void;
+    };
+    $Infer: {
+        Session: {
+            user: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                email: string;
+                emailVerified: boolean;
+                name: string;
+                image?: string | null | undefined;
+            };
+            session: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                userId: string;
+                expiresAt: Date;
+                token: string;
+                ipAddress?: string | null | undefined;
+                userAgent?: string | null | undefined;
+            };
+        };
+    };
+    $fetch: import("@better-fetch/fetch").BetterFetch<{
+        plugins: (import("@better-fetch/fetch").BetterFetchPlugin | {
+            id: string;
+            name: string;
+            hooks: {
+                onSuccess: ((context: import("@better-fetch/fetch").SuccessContext<any>) => Promise<void> | void) | undefined;
+                onError: ((context: import("@better-fetch/fetch").ErrorContext) => Promise<void> | void) | undefined;
+                onRequest: (<T extends Record<string, any>>(context: import("@better-fetch/fetch").RequestContext<T>) => Promise<import("@better-fetch/fetch").RequestContext | void> | import("@better-fetch/fetch").RequestContext | void) | undefined;
+                onResponse: ((context: import("@better-fetch/fetch").ResponseContext) => Promise<Response | void | import("@better-fetch/fetch").ResponseContext> | Response | import("@better-fetch/fetch").ResponseContext | void) | undefined;
+            };
+        } | {
+            id: string;
+            name: string;
+            hooks: {
+                onSuccess(context: import("@better-fetch/fetch").SuccessContext<any>): void;
+            };
+        })[];
+        method: string;
+        headers?: (HeadersInit & (HeadersInit | {
+            accept: "application/json" | "text/plain" | "application/octet-stream";
+            "content-type": "application/json" | "text/plain" | "application/x-www-form-urlencoded" | "multipart/form-data" | "application/octet-stream";
+            authorization: "Bearer" | "Basic";
+        })) | undefined;
+        redirect?: RequestRedirect | undefined;
+        cache?: RequestCache | undefined;
+        credentials?: RequestCredentials;
+        integrity?: string | undefined;
+        keepalive?: boolean | undefined;
+        mode?: RequestMode | undefined;
+        priority?: RequestPriority | undefined;
+        referrer?: string | undefined;
+        referrerPolicy?: ReferrerPolicy | undefined;
+        signal?: (AbortSignal | null) | undefined;
+        window?: null | undefined;
+        onRetry?: ((response: import("@better-fetch/fetch").ResponseContext) => Promise<void> | void) | undefined;
+        hookOptions?: {
+            cloneResponse?: boolean;
+        } | undefined;
+        timeout?: number | undefined;
+        customFetchImpl: import("@better-fetch/fetch").FetchEsque;
+        baseURL: string;
+        throw?: boolean | undefined;
+        auth?: ({
+            type: "Bearer";
+            token: string | Promise<string | undefined> | (() => string | Promise<string | undefined> | undefined) | undefined;
+        } | {
+            type: "Basic";
+            username: string | (() => string | undefined) | undefined;
+            password: string | (() => string | undefined) | undefined;
+        } | {
+            type: "Custom";
+            prefix: string | (() => string | undefined) | undefined;
+            value: string | (() => string | undefined) | undefined;
+        }) | undefined;
+        body?: any;
+        query?: any;
+        params?: any;
+        duplex?: "full" | "half" | undefined;
+        jsonParser: (text: string) => Promise<any> | any;
+        retry?: import("@better-fetch/fetch").RetryOptions | undefined;
+        retryAttempt?: number | undefined;
+        output?: (import("@better-fetch/fetch").StandardSchemaV1 | typeof Blob | typeof File) | undefined;
+        errorSchema?: import("@better-fetch/fetch").StandardSchemaV1 | undefined;
+        disableValidation?: boolean | undefined;
+    }, unknown, unknown, {}>;
+    $store: {
+        notify: (signal?: Omit<string, "$sessionSignal"> | "$sessionSignal") => void;
+        listen: (signal: Omit<string, "$sessionSignal"> | "$sessionSignal", listener: (value: boolean, oldValue?: boolean | undefined) => void) => void;
+        atoms: Record<string, import("better-auth/react").WritableAtom<any>>;
+    };
+    $ERROR_CODES: {
+        readonly USER_NOT_FOUND: "User not found";
+        readonly FAILED_TO_CREATE_USER: "Failed to create user";
+        readonly FAILED_TO_CREATE_SESSION: "Failed to create session";
+        readonly FAILED_TO_UPDATE_USER: "Failed to update user";
+        readonly FAILED_TO_GET_SESSION: "Failed to get session";
+        readonly INVALID_PASSWORD: "Invalid password";
+        readonly INVALID_EMAIL: "Invalid email";
+        readonly INVALID_EMAIL_OR_PASSWORD: "Invalid email or password";
+        readonly SOCIAL_ACCOUNT_ALREADY_LINKED: "Social account already linked";
+        readonly PROVIDER_NOT_FOUND: "Provider not found";
+        readonly INVALID_TOKEN: "Invalid token";
+        readonly ID_TOKEN_NOT_SUPPORTED: "id_token not supported";
+        readonly FAILED_TO_GET_USER_INFO: "Failed to get user info";
+        readonly USER_EMAIL_NOT_FOUND: "User email not found";
+        readonly EMAIL_NOT_VERIFIED: "Email not verified";
+        readonly PASSWORD_TOO_SHORT: "Password too short";
+        readonly PASSWORD_TOO_LONG: "Password too long";
+        readonly USER_ALREADY_EXISTS: "User already exists.";
+        readonly USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL: "User already exists. Use another email.";
+        readonly EMAIL_CAN_NOT_BE_UPDATED: "Email can not be updated";
+        readonly CREDENTIAL_ACCOUNT_NOT_FOUND: "Credential account not found";
+        readonly SESSION_EXPIRED: "Session expired. Re-authenticate to perform this action.";
+        readonly FAILED_TO_UNLINK_LAST_ACCOUNT: "You can't unlink your last account";
+        readonly ACCOUNT_NOT_FOUND: "Account not found";
+        readonly USER_ALREADY_HAS_PASSWORD: "User already has a password. Provide that to delete the account.";
+    };
+};
