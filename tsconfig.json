@@ -4,7 +4,8 @@
     "moduleResolution": "NodeNext",
     "target": "ESNext",
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true
   },
   "files": [],
   "references": [
