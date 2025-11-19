@@ -2,7 +2,7 @@ import { useForm } from "@mantine/form";
 import { zod4Resolver } from 'mantine-form-zod-resolver';
 import { authClient } from "../../lib/auth-client"
 import { z } from "zod/v4";
-import { Button, Paper, PasswordInput, TextInput } from "@mantine/core";
+import { Button, Center, LoadingOverlay, Paper, PasswordInput, TextInput } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useState } from "react";
@@ -16,7 +16,9 @@ const signUpSchema = z.object({
 
 type SignUpInput = z.infer<typeof signUpSchema>;
 
-export default function SignUpTab() {
+export default function SignUpTab({ openEmailVerificationTab }: {
+    openEmailVerificationTab: (email: string) => void
+}) {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -30,9 +32,9 @@ export default function SignUpTab() {
     });
 
     const handleSignUp = async (data: SignUpInput) => {
-        await authClient.signUp.email({ ...data, callbackURL: "/" }, {
+        const res = await authClient.signUp.email({ ...data, callbackURL: import.meta.env.VITE_CALLBACK_URL }, {
             onRequest: async () => {
-                setLoading(true); 
+                setLoading(true);
                 // await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate loading state
             },
             onError: error => {
@@ -46,27 +48,26 @@ export default function SignUpTab() {
                 });
                 setLoading(false);
             },
-            onSuccess: () => {
-                notifications.show({
-                    title: "Success",
-                    message: "Sign up successful!",
-                    color: "green",
-                    withCloseButton: true,
-                    withBorder: true,
-                    icon: <IconCheck />
-                });
-                navigate({ to: "/" }); // Redirect to home page after sign-up
+            onSuccess: (ctx) => {
+                if (!ctx.data.user.emailVerified) {
+                    openEmailVerificationTab(ctx.data.user.email);
+                }
                 setLoading(false);
             }
         });
+
+        if (res.error) {
+            return;
+        }
     };
 
     return <>
-        <Paper withBorder p={"md"} miw={"400px"} style={{
-            borderTop: 'none',
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0,
-        }}>
+        <Paper withBorder p={"md"} style={{ borderTop: 'none', borderTopLeftRadius: 0, borderTopRightRadius: 0 }} pos={"relative"}>
+            <LoadingOverlay
+                visible={loading}
+                zIndex={1000}
+                overlayProps={{ radius: "sm", blur: 2 }}
+                loaderProps={{ type: 'bars' }} />
             <form onSubmit={form.onSubmit(handleSignUp)}>
                 <TextInput
                     label="Name"
@@ -89,9 +90,11 @@ export default function SignUpTab() {
                     required
                     mb={"md"}
                 />
-                <Button type="submit" size="lg" fullWidth loading={loading} loaderProps={{ type: "dots", color: "white" }}>
-                    Sign up
-                </Button>
+                <Center>
+                    <Button type="submit">
+                        Sign up
+                    </Button>
+                </Center>
             </form>
         </Paper>
     </>

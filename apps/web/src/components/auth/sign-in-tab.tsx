@@ -2,7 +2,7 @@ import { useForm } from "@mantine/form";
 import { zod4Resolver } from 'mantine-form-zod-resolver';
 import { authClient } from "../../lib/auth-client"
 import { z } from "zod/v4";
-import { Button, Divider, Paper, PasswordInput, TextInput } from "@mantine/core";
+import { Button, Center, Divider, Flex, LoadingOverlay, Paper, PasswordInput, TextInput } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useNavigate } from '@tanstack/react-router'
@@ -16,7 +16,9 @@ const signInSchema = z.object({
 
 type SignInInput = z.infer<typeof signInSchema>;
 
-export default function SignInTab() {
+export default function SignInTab({ openEmailVerificationTab }: {
+    openEmailVerificationTab: (email: string) => void
+}) {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -30,12 +32,19 @@ export default function SignInTab() {
 
     const handleSignIn = async (data: SignInInput) => {
         // Sign in using email and password
-        await authClient.signIn.email({ ...data, callbackURL: "http://localhost:3001/" }, {
+        await authClient.signIn.email({ ...data, callbackURL: import.meta.env.VITE_CALLBACK_URL }, {
             onRequest: async () => {
                 setLoading(true);
-                // await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate loading state
+                // await new Promise(resolve => setTimeout(resolve, 5000)); // Simulate loading state
             },
             onError: error => {
+                // If email is not verified, open the email verification tab
+                if (error.error.code === "EMAIL_NOT_VERIFIED") {
+                    openEmailVerificationTab(data.email);
+                    setLoading(false);
+                    return;
+                }
+                
                 notifications.show({
                     title: "Error",
                     message: error.error.message,
@@ -62,7 +71,12 @@ export default function SignInTab() {
     };
 
     return <>
-        <Paper withBorder p={"md"} miw={"400px"} style={{ borderTop: 'none', borderTopLeftRadius: 0, borderTopRightRadius: 0, }}>
+        <Paper withBorder p={"md"} style={{ borderTop: 'none', borderTopLeftRadius: 0, borderTopRightRadius: 0, }} pos={"relative"}>
+            <LoadingOverlay
+                visible={loading}
+                zIndex={1000}
+                overlayProps={{ radius: "sm" }}
+                loaderProps={{ type: 'bars' }} />
             <form onSubmit={form.onSubmit(handleSignIn)}>
                 <TextInput
                     label="Email"
@@ -78,12 +92,16 @@ export default function SignInTab() {
                     required
                     mb={"md"}
                 />
-                <Button type="submit" size="lg" fullWidth loading={loading} loaderProps={{ type: "dots", color: "white" }}>
-                    Sign in
-                </Button>
+                <Center>
+                    <Button type="submit">
+                        Sign in
+                    </Button>
+                </Center>
             </form>
             <Divider my="lg" label="Or continue with" labelPosition="center" />
-            <SocialAuthButtons />
+            <Flex gap={"md"}>
+                <SocialAuthButtons />
+            </Flex>
         </Paper>
     </>
 }
