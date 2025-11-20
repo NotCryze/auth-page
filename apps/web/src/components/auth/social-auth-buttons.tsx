@@ -14,7 +14,7 @@ export default function SocialAuthButtons() {
         }
 
         return (
-            <BetterAuthActionButton key={provider} action={handleSocialSignIn} variant="outline" fullWidth>
+            <BetterAuthActionButton key={provider} action={handleSocialSignIn} variant="outline">
                 <Icon />
                 {SUPPORTED_O_AUTH_PROVIDER_DETAILS[provider].name}
             </BetterAuthActionButton>

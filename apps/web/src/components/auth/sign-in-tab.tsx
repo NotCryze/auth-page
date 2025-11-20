@@ -2,7 +2,7 @@ import { useForm } from "@mantine/form";
 import { zod4Resolver } from 'mantine-form-zod-resolver';
 import { authClient } from "../../lib/auth-client"
 import { z } from "zod/v4";
-import { Button, Center, Divider, Flex, LoadingOverlay, Paper, PasswordInput, TextInput } from "@mantine/core";
+import { Anchor, Box, Button, Center, Divider, Group, LoadingOverlay, Paper, PasswordInput, Text, TextInput } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconX } from '@tabler/icons-react';
 import { useNavigate } from '@tanstack/react-router'
@@ -11,13 +11,14 @@ import { useState } from "react";
 
 const signInSchema = z.object({
     email: z.email(),
-    password: z.string(),
+    password: z.string().min(1, "Invalid password"),
 });
 
 type SignInInput = z.infer<typeof signInSchema>;
 
-export default function SignInTab({ openEmailVerificationTab }: {
-    openEmailVerificationTab: (email: string) => void
+export default function SignInTab({ openEmailVerificationTab, openForgotPasswordTab }: {
+    openEmailVerificationTab: (email: string) => void,
+    openForgotPasswordTab: () => void
 }) {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ export default function SignInTab({ openEmailVerificationTab }: {
                     setLoading(false);
                     return;
                 }
-                
+
                 notifications.show({
                     title: "Error",
                     message: error.error.message,
@@ -78,20 +79,29 @@ export default function SignInTab({ openEmailVerificationTab }: {
                 overlayProps={{ radius: "sm" }}
                 loaderProps={{ type: 'bars' }} />
             <form onSubmit={form.onSubmit(handleSignIn)}>
+                <Text component="label" size="sm" fw={500}>
+                    Email
+                </Text>
                 <TextInput
-                    label="Email"
                     placeholder="Email"
                     {...form.getInputProps("email")}
-                    required
                     mb={"md"}
                 />
-                <PasswordInput
-                    label="Password"
-                    placeholder="Password"
-                    {...form.getInputProps("password")}
-                    required
-                    mb={"md"}
-                />
+                <Box mb={"md"}>
+                    <Group justify="space-between">
+                        <Text component="label" size="sm" fw={500}>
+                            Password
+                        </Text>
+
+                        <Anchor onClick={openForgotPasswordTab} fw={500} fz="xs">
+                            Forgot your password?
+                        </Anchor>
+                    </Group>
+                    <PasswordInput
+                        placeholder="Password"
+                        {...form.getInputProps("password")}
+                    />
+                </Box>
                 <Center>
                     <Button type="submit">
                         Sign in
@@ -99,9 +109,9 @@ export default function SignInTab({ openEmailVerificationTab }: {
                 </Center>
             </form>
             <Divider my="lg" label="Or continue with" labelPosition="center" />
-            <Flex gap={"md"}>
+            <Group grow>
                 <SocialAuthButtons />
-            </Flex>
+            </Group>
         </Paper>
     </>
 }

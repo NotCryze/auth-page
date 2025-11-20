@@ -55,7 +55,7 @@ function RouteComponent() {
           <Tabs.Tab value="sign-up"><b>Sign Up</b></Tabs.Tab>
         </Tabs.List>}
         <Tabs.Panel value="sign-in">
-          <SignInTab openEmailVerificationTab={openEmailVerificationTab} />
+          <SignInTab openEmailVerificationTab={openEmailVerificationTab} openForgotPasswordTab={() => setActiveTab("forgot-password")} />
         </Tabs.Panel>
         <Tabs.Panel value="sign-up">
           <SignUpTab openEmailVerificationTab={openEmailVerificationTab} />
@@ -66,7 +66,7 @@ function RouteComponent() {
           )}
         </Tabs.Panel>
         <Tabs.Panel value="forgot-password">
-          <ForgotPasswordTab />
+          <ForgotPasswordTab openSignInTab={() => setActiveTab('sign-in')} />
         </Tabs.Panel>
       </Tabs>
     </Center>
