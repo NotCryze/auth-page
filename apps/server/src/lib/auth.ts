@@ -30,6 +30,15 @@ export const auth = betterAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
             redirectURI: "http://localhost:3000/api/auth/callback/google",
         },
+        azure: {
+            enabled: true,
+            type: "oidc",
+            clientId: process.env.AZURE_CLIENT_ID!,
+            clientSecret: process.env.AZURE_CLIENT_SECRET!,
+            issuer: `https://login.microsoftonline.com/${process.env.AZURE_TENANT_ID}/v2.0`, // ← Azure OIDC issuer
+            redirectURI: "http://localhost:3001/api/auth/callback/azure",
+            scopes: ["openid", "profile", "email"],
+        }
     },
     sessions: {
         cookieCache: {

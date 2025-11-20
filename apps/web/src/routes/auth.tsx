@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { authClient } from '../lib/auth-client'
 import { VerifyEmailTab } from '../components/auth/verify-email-tab'
 import type { TabsProps } from '@mantine/core'
+import ForgotPasswordTab from '../components/auth/forgot-password-tab'
 
 
 export const Route = createFileRoute('/auth')({
@@ -49,7 +50,7 @@ function RouteComponent() {
   return <>
     <Center h={"100%"} p={"md"}>
       <Tabs value={activeTab} onChange={setActiveTab} w={{ base: "100%", sm: 600, lg: 500 }}>
-        {activeTab !== 'verify-email' && <Tabs.List grow>
+        {(activeTab === 'sign-in' || activeTab === 'sign-up') && <Tabs.List grow>
           <Tabs.Tab value="sign-in"><b>Sign In</b></Tabs.Tab>
           <Tabs.Tab value="sign-up"><b>Sign Up</b></Tabs.Tab>
         </Tabs.List>}
@@ -63,6 +64,9 @@ function RouteComponent() {
           {activeTab === "verify-email" && (
             <VerifyEmailTab email={email} />
           )}
+        </Tabs.Panel>
+        <Tabs.Panel value="forgot-password">
+          <ForgotPasswordTab />
         </Tabs.Panel>
       </Tabs>
     </Center>
