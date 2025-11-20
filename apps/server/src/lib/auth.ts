@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../db.js";
+import { sso } from "@better-auth/sso";
 
 export const auth = betterAuth({
     emailAndPassword: {
@@ -41,4 +42,7 @@ export const auth = betterAuth({
         provider: "pg",
     }),
     trustedOrigins: ["http://localhost:3001"],
+    plugins: [
+        sso()
+    ]
 });

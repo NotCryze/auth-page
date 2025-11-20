@@ -44,7 +44,7 @@ export default function SignInTab({ openEmailVerificationTab }: {
                     setLoading(false);
                     return;
                 }
-                
+
                 notifications.show({
                     title: "Error",
                     message: error.error.message,
@@ -69,6 +69,13 @@ export default function SignInTab({ openEmailVerificationTab }: {
             }
         });
     };
+
+    const handleAzureADSignIn = async () => {
+        await authClient.signIn.sso({
+            providerId: "azure-ad",
+            callbackURL: import.meta.env.VITE_CALLBACK_URL
+        });
+    }
 
     return <>
         <Paper withBorder p={"md"} style={{ borderTop: 'none', borderTopLeftRadius: 0, borderTopRightRadius: 0, }} pos={"relative"}>
@@ -101,6 +108,7 @@ export default function SignInTab({ openEmailVerificationTab }: {
             <Divider my="lg" label="Or continue with" labelPosition="center" />
             <Flex gap={"md"}>
                 <SocialAuthButtons />
+                <Button onClick={handleAzureADSignIn}>Azure AD</Button>
             </Flex>
         </Paper>
     </>
