@@ -41,8 +41,7 @@ export function VerifyEmailTab({ email }: { email: string }) {
         <Paper withBorder p={"md"}>
             <Title order={2} mb={"md"}>Verify Your Email</Title>
             <Text size="lg" mb={"md"}>
-                We have sent a verification email to <b>{email}</b>.
-                Please check your inbox and click on the verification link to verify your email address.
+                We have sent a verification email to <b>{email}</b>. Please check your inbox and click on the verification link to verify your email address.
             </Text>
             <Center>
                 <BetterAuthActionButton action={handleResendVerificationEmail} successmessage="Verification email resent successfully!" disabled={timeToNextEmail > 0}>
