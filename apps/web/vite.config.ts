@@ -12,6 +12,6 @@ export default defineConfig({
     react()
   ],
   server: {
-    port: 3001, // Set port to 3001 to avoid conflict with server running on 3000
+    port: Number(process.env.PORT) || 3001, // Set port to 3001 to avoid conflict with server running on 3000
   },
 })
