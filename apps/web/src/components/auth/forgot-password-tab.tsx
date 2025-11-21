@@ -2,10 +2,9 @@ import { useForm } from "@mantine/form";
 import { zod4Resolver } from 'mantine-form-zod-resolver';
 import { authClient } from "../../lib/auth-client"
 import { z } from "zod/v4";
-import { Button, Center, Group, LoadingOverlay, Paper, TextInput, Title } from "@mantine/core";
+import { Button, Group, LoadingOverlay, Paper, TextInput, Title } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { IconCheck, IconMail, IconX } from '@tabler/icons-react';
-import { redirect, useNavigate } from '@tanstack/react-router'
+import { IconMail, IconX } from '@tabler/icons-react';
 import { useState } from "react";
 
 const forgotPasswordSchema = z.object({
@@ -18,7 +17,6 @@ export default function ForgotPasswordTab({ openSignInTab }: {
     openSignInTab: () => void
 }) {
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
 
     const form = useForm<ForgotPasswordInput>({
         initialValues: {
@@ -30,7 +28,7 @@ export default function ForgotPasswordTab({ openSignInTab }: {
     const handleForgotPassword = async (data: ForgotPasswordInput) => {
         await authClient.requestPasswordReset({
             ...data,
-            redirectTo: "/auth/reset-password"
+            redirectTo: import.meta.env.VITE_CALLBACK_URL + "auth/reset-password"
         },
             {
                 onRequest: async () => {

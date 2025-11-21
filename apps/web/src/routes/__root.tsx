@@ -1,15 +1,16 @@
 import { AppShell, Box, Group, Title } from '@mantine/core'
-import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { createRootRoute, Outlet, useNavigate } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 
 function RootLayout() {
+    const navigate = useNavigate()
     return <AppShell
         header={{ height: 60 }}
     >
         <AppShell.Header>
             <Group h="100%" px="md" justify='space-between'>
-                <Title>Auth Page</Title>
+                <Title style={{ cursor: "pointer" }} onClick={() => navigate({ to: "/" })}>Auth Page</Title>
             </Group>
         </AppShell.Header>
         <AppShell.Main>

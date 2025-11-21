@@ -1,15 +1,15 @@
 import { Center, Tabs } from '@mantine/core'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import SignUpTab from '../components/auth/sign-up-tab'
-import SignInTab from '../components/auth/sign-in-tab'
+import SignUpTab from '../../components/auth/sign-up-tab'
+import SignInTab from '../../components/auth/sign-in-tab'
 import { useEffect, useState } from 'react'
-import { authClient } from '../lib/auth-client'
-import { VerifyEmailTab } from '../components/auth/verify-email-tab'
+import { authClient } from '../../lib/auth-client'
+import { VerifyEmailTab } from '../../components/auth/verify-email-tab'
 import type { TabsProps } from '@mantine/core'
-import ForgotPasswordTab from '../components/auth/forgot-password-tab'
+import ForgotPasswordTab from '../../components/auth/forgot-password-tab'
 
 
-export const Route = createFileRoute('/auth')({
+export const Route = createFileRoute('/auth/')({
   component: RouteComponent,
 })
 
