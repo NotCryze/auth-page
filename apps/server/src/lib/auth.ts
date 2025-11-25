@@ -10,6 +10,14 @@ export const auth = betterAuth({
             console.log(`Send password reset email to ${user.email} with link: ${url}`);
         },
     },
+    user: {
+        changeEmail: {
+            enabled: true,
+            sendChangeEmailVerification: async ({ user, url, newEmail }) => {
+                console.log(`Send email change verification to ${newEmail} with link: ${url}`);
+            }
+        }
+    },
     emailVerification: {
         autoSignInAfterVerification: true,
         sendOnSignUp: true,

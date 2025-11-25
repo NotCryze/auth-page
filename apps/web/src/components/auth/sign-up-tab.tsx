@@ -1,12 +1,11 @@
-import { useForm } from "@mantine/form";
-import { zod4Resolver } from 'mantine-form-zod-resolver';
-import { authClient } from "../../lib/auth-client"
-import { z } from "zod/v4";
 import { Button, Center, LoadingOverlay, Paper, PasswordInput, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { IconCheck, IconX } from '@tabler/icons-react';
+import { IconX } from '@tabler/icons-react';
+import { zod4Resolver } from 'mantine-form-zod-resolver';
 import { useState } from "react";
-import { useNavigate } from '@tanstack/react-router'
+import { z } from "zod/v4";
+import { authClient } from "../../lib/auth-client";
 
 const signUpSchema = z.object({
     name: z.string().min(1),                                                // Name is required
@@ -20,7 +19,6 @@ export default function SignUpTab({ openEmailVerificationTab }: {
     openEmailVerificationTab: (email: string) => void
 }) {
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
 
     const form = useForm<SignUpInput>({
         initialValues: {
@@ -55,10 +53,6 @@ export default function SignUpTab({ openEmailVerificationTab }: {
                 setLoading(false);
             }
         });
-
-        if (res.error) {
-            return;
-        }
     };
 
     return <>

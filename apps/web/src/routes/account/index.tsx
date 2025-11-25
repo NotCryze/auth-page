@@ -41,7 +41,7 @@ function RouteComponent() {
         </Tabs.List>
 
         <Tabs.Panel value="manage-account-details">
-          <AccountUpdateTab />
+          <AccountUpdateTab {...user} />
         </Tabs.Panel>
 
         <Tabs.Panel value="change-password">
