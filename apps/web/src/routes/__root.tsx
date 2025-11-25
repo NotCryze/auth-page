@@ -2,7 +2,6 @@ import { AppShell, Box, Group, Title } from '@mantine/core'
 import { createRootRoute, Outlet, useNavigate } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
-
 function RootLayout() {
     const navigate = useNavigate()
     return <AppShell
@@ -22,4 +21,6 @@ function RootLayout() {
     </AppShell>
 }
 
-export const Route = createRootRoute({ component: RootLayout })
+export const Route = createRootRoute({
+    component: RootLayout
+})

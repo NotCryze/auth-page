@@ -1,33 +1,24 @@
 import { Center, Tabs } from '@mantine/core'
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import SignUpTab from '../../components/auth/sign-up-tab'
 import SignInTab from '../../components/auth/sign-in-tab'
 import { useEffect, useState } from 'react'
-import { authClient } from '../../lib/auth-client'
 import { VerifyEmailTab } from '../../components/auth/verify-email-tab'
 import type { TabsProps } from '@mantine/core'
 import ForgotPasswordTab from '../../components/auth/forgot-password-tab'
+import { requireNoAuth } from '../../lib/route-auth'
 
 
 export const Route = createFileRoute('/auth/')({
+  beforeLoad: requireNoAuth,
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [activeTab, setActiveTab] = useState<TabsProps['value']>('sign-in');
 
   useEffect(() => {
-    // If user is already authenticated, redirect to home page
-    authClient.getSession().then(({ data: session }) => {
-      {
-        if (session) {
-          navigate({ to: "/" });
-        }
-      }
-    });
-
     // Set document title based on active tab
     switch (activeTab) {
       case 'sign-in':

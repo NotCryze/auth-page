@@ -33,8 +33,10 @@ function RouteComponent() {
                 :
                 <Flex align={"center"} direction={"column"} rowGap={"md"}>
                     <Title>Welcome, {session.user.name || session.user.email}!</Title>
-                    <BetterAuthActionButton action={handleLogOut}>Sign Out</BetterAuthActionButton>
+                    <Button onClick={() => navigate({ to: "/profile" })}>Go to Profile</Button>
+                    <BetterAuthActionButton color='red' action={handleLogOut}>Sign Out</BetterAuthActionButton>
                 </Flex>}
+                
         </Center>
     </>
 }
