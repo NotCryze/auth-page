@@ -1,4 +1,4 @@
-import { Button, Center, LoadingOverlay, Paper, TextInput } from "@mantine/core";
+import { Button, Center, LoadingOverlay, Paper, TextInput, Title } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { zod4Resolver } from 'mantine-form-zod-resolver';
 import { useState } from "react";
@@ -6,6 +6,7 @@ import { z } from "zod/v4";
 import { authClient } from "../../lib/auth-client";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconExclamationMark, IconX } from "@tabler/icons-react";
+import { useRouter } from "@tanstack/react-router";
 
 const accountUpdateSchema = z.object({
   name: z.string().min(1),                                                // Name is required
@@ -22,6 +23,7 @@ export default function AccountUpdateTab({
   email: string
 }) {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const form = useForm<AccountUpdateInput>({
     initialValues: {
@@ -32,13 +34,14 @@ export default function AccountUpdateTab({
   });
 
   const handleAccountUpdate = async (data: AccountUpdateInput) => {
+    setLoading(true);
     const promises = [
       authClient.updateUser({ name: data.name })
     ];
     if (data.email !== email) {
       promises.push(authClient.changeEmail({
         newEmail: data.email,
-        callbackURL: `${import.meta.env.VITE_CALLBACK_URL}/account`
+        callbackURL: `${import.meta.env.VITE_CALLBACK_URL}account`
       }))
     }
 
@@ -46,7 +49,6 @@ export default function AccountUpdateTab({
 
     const updateUserResult = res[0];
     const changeEmailResult = res[1] ?? { error: null };
-    console.log({ updateUserResult, changeEmailResult });
 
     if (updateUserResult.error) {
       notifications.show({
@@ -76,6 +78,8 @@ export default function AccountUpdateTab({
           withBorder: true,
           icon: <IconExclamationMark />,
         });
+        router.invalidate();
+
       } else {
         notifications.show({
           title: "Success",
@@ -85,8 +89,10 @@ export default function AccountUpdateTab({
           withBorder: true,
           icon: <IconCheck />,
         });
+        router.invalidate();
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -96,6 +102,7 @@ export default function AccountUpdateTab({
         zIndex={1000}
         overlayProps={{ radius: "sm", blur: 2 }}
         loaderProps={{ type: 'bars' }} />
+      <Title order={3} mb={"md"}>Manage Account Details</Title>
       <form onSubmit={form.onSubmit(handleAccountUpdate)}>
         <TextInput
           label="Name"
