@@ -4,7 +4,7 @@ import { fromNodeHeaders, toNodeHandler } from "better-auth/node";
 import cors from "cors";
 
 const app = express();
-const port = process.env.PORT || 7003;
+const port = process.env.PORT || 3000;
 
 app.use(
   cors({
@@ -14,7 +14,7 @@ app.use(
   })
 );
 
-app.all("/api/auth/*splat", toNodeHandler(auth));
+app.all('/api/auth/{*any}', toNodeHandler(auth));
 
 app.use(express.json());
 

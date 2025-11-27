@@ -33,7 +33,7 @@ export default function AccountUpdateTab({
     validate: zod4Resolver(accountUpdateSchema)
   });
 
-  const handleAccountUpdate = async (data: AccountUpdateInput) => {
+  async function handleAccountUpdate(data: AccountUpdateInput) {
     setLoading(true);
     const promises = [
       authClient.updateUser({ name: data.name })

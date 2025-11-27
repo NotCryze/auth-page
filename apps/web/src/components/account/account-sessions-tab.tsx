@@ -15,8 +15,8 @@ export default function AccountSessionsTab({ currentSessionToken, sessions }: {
     const currentSession = sessions?.find(session => session.token === currentSessionToken);
     const router = useRouter();
 
-    function handleRevokeOtherSessions() {
-        return authClient.revokeOtherSessions(undefined, {
+    async function handleRevokeOtherSessions() {
+        return await authClient.revokeOtherSessions(undefined, {
             onError: (error) => {
                 notifications.show({
                     title: "Error",

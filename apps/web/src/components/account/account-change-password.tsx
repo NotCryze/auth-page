@@ -38,8 +38,8 @@ export default function AccountChangePassword() {
         validate: zod4Resolver(changePasswordSchema)
     });
 
-    const handleChangePassword = async (data: ChangePasswordInput) => {
-        authClient.changePassword(data, {
+    async function handleChangePassword(data: ChangePasswordInput) {
+        await authClient.changePassword(data, {
             onRequest: async () => {
                 setLoading(true);
             },

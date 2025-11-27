@@ -24,15 +24,15 @@ export default function LinkedAccountCard({ provider, account }: {
         Icon: IconShield,
     };
 
-    function linkAccount() {
-        return authClient.linkSocial({
+    async function linkAccount() {
+        return await authClient.linkSocial({
             provider: provider,
             callbackURL: import.meta.env.VITE_CALLBACK_URL + "account#linked-accounts",
         });
     }
 
-    function unlinkAccount() {
-        return authClient.unlinkAccount({ providerId: provider }, {
+    async function unlinkAccount() {
+        return await authClient.unlinkAccount({ providerId: provider }, {
             onSuccess: () => {
                 router.invalidate();
             }

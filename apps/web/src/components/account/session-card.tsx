@@ -21,8 +21,8 @@ export default function SessionCard({ session, current }: {
         return `${browserName}, ${browserOS}`;
     }
 
-    function handleRevokeSession() {
-        authClient.revokeSession({ token: session.token }, {
+    async function handleRevokeSession() {
+        await authClient.revokeSession({ token: session.token }, {
             onError: (error) => {
                 notifications.show({
                     title: "Error",

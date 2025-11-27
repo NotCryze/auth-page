@@ -15,8 +15,8 @@ export default function AccountDeleteTab() {
         ),
         labels: { confirm: 'Delete Account', cancel: 'Cancel' },
         confirmProps: { color: 'red' },
-        onConfirm: () => {
-            authClient.deleteUser({ callbackURL: import.meta.env.VITE_CALLBACK_URL });
+        onConfirm: async () => {
+            await authClient.deleteUser({ callbackURL: import.meta.env.VITE_CALLBACK_URL });
             notifications.show({
                 title: 'Account Deletion Initiated',
                 message: 'Please check your email to confirm account deletion.',

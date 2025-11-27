@@ -11,8 +11,8 @@ export default function AccountSetPassword({ email }: {
 }) {
     const [loading, setLoading] = useState(false);
 
-    function handleSendResetEmail() {
-        return authClient.requestPasswordReset({
+    async function handleSendResetEmail() {
+        return await authClient.requestPasswordReset({
             email,
             redirectTo: import.meta.env.VITE_CALLBACK_URL + "auth/reset-password",
         },
