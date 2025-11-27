@@ -16,7 +16,13 @@ export const auth = betterAuth({
             sendChangeEmailVerification: async ({ user, url, newEmail }) => {
                 console.log(`Send email change verification to ${newEmail} with link: ${url}`);
             }
-        }
+        },
+        deleteUser: {
+            enabled: true,
+            sendDeleteAccountVerification: async ({ user, url }) => {
+                console.log(`Send account deletion verification to ${user.email} with link: ${url}`);
+            }
+        },
     },
     emailVerification: {
         autoSignInAfterVerification: true,
