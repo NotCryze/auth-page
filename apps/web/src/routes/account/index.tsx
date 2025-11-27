@@ -40,6 +40,13 @@ function RouteComponent() {
   const [activeTab, setActiveTab] = useState<TabsProps['value']>(window.location.hash.substring(1) || 'manage-account-details');
 
   useEffect(() => {
+    // Remove hash from URL after using it
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }, [])
+
+  useEffect(() => {
     // Set document title based on active tab
     switch (activeTab) {
       case 'manage-account-details':
