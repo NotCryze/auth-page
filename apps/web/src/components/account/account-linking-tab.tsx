@@ -25,10 +25,15 @@ export default function AccountLinkingTab({ accounts }: {
         <div>No linked accounts found.</div>
       )}
 
-      <Title order={4} mt={"xl"} mb={"md"}>Link Other Accounts</Title>
-      {SUPPORTED_O_AUTH_PROVIDERS.filter(provider => !nonCredentialAccounts.some(account => account.providerId === provider)).map((providerId) => (
-        <LinkedAccountCard key={providerId} provider={providerId} account={null} />
-      ))}
+      {SUPPORTED_O_AUTH_PROVIDERS.filter(provider => !nonCredentialAccounts.some(account => account.providerId === provider)).length > 0 && (
+        <>
+          <Title order={4} mt={"xl"} mb={"md"}>Link Other Accounts</Title>
+          {SUPPORTED_O_AUTH_PROVIDERS.filter(provider => !nonCredentialAccounts.some(account => account.providerId === provider)).map((providerId) => (
+            <LinkedAccountCard key={providerId} provider={providerId} account={null} />
+          ))}
+        </>
+      )}
+
     </Paper>
   )
 }

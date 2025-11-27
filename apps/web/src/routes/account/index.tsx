@@ -1,6 +1,7 @@
-import { Flex, Skeleton, Tabs } from '@mantine/core';
+import { Flex, Skeleton, Tabs, type TabsProps } from '@mantine/core';
 import { IconAuth2fa, IconKey, IconLink, IconPassword, IconTrash, IconUser } from '@tabler/icons-react';
 import { createFileRoute, useLoaderData } from '@tanstack/react-router';
+import { useEffect, useState } from 'react';
 import Account2FATab from '../../components/account/account-2fa-tab';
 import AccountCard from '../../components/account/account-card';
 import AccountChangePasswordTab from '../../components/account/account-change-password-tab';
@@ -36,12 +37,37 @@ export const Route = createFileRoute('/account/')({
 
 function RouteComponent() {
   const { session, user, sessions, accounts } = useLoaderData({ from: Route.id });
+  const [activeTab, setActiveTab] = useState<TabsProps['value']>(window.location.hash.substring(1) || 'manage-account-details');
+
+  useEffect(() => {
+    // Set document title based on active tab
+    switch (activeTab) {
+      case 'manage-account-details':
+        document.title = "Manage Account Details";
+        break;
+      case 'change-password':
+        document.title = "Change Password";
+        break;
+      case 'manage-2fa':
+        document.title = "Manage Two-Factor Authentication";
+        break;
+      case 'sessions':
+        document.title = "Manage Sessions";
+        break;
+      case 'linked-accounts':
+        document.title = "Manage Linked Accounts";
+        break;
+      case 'delete-account':
+        document.title = "Delete Account";
+        break;
+    }
+  }, [activeTab]);
 
   return (
     <Flex direction="column" align="center" gap="md" mt="xl">
       <AccountCard {...user} />
 
-      <Tabs defaultValue="manage-account-details" w={{ base: "100%", sm: 600, lg: 500 }}>
+      <Tabs value={activeTab} onChange={setActiveTab} w={{ base: "100%", sm: 600, lg: 500 }}>
         <Tabs.List grow>
           <Tabs.Tab value="manage-account-details"><IconUser /></Tabs.Tab>
           <Tabs.Tab value="change-password"><IconPassword /></Tabs.Tab>

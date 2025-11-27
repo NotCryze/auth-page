@@ -27,7 +27,7 @@ export default function LinkedAccountCard({ provider, account }: {
     function linkAccount() {
         return authClient.linkSocial({
             provider: provider,
-            callbackURL: import.meta.env.VITE_CALLBACK_URL + "account"
+            callbackURL: import.meta.env.VITE_CALLBACK_URL + "account#linked-accounts",
         });
     }
 
@@ -61,7 +61,7 @@ export default function LinkedAccountCard({ provider, account }: {
                 <Grid.Col span={"content"}>
                     <Flex h={"100%"} align={"center"}>
                         {!account ? (
-                            <BetterAuthActionButton action={linkAccount} successmessage={`Successfully linked ${providerDetails.name} account.`}><IconLinkPlus /></BetterAuthActionButton>
+                            <BetterAuthActionButton action={linkAccount} successmessage={`Redirecting to link your ${providerDetails.name} account...`}><IconLinkPlus /></BetterAuthActionButton>
                         ) : (
                             <BetterAuthActionButton color={"red"} action={unlinkAccount} successmessage={`Successfully unlinked ${providerDetails.name} account.`}><IconUnlink /></BetterAuthActionButton>
                         )}
