@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as AccountIndexRouteImport } from './routes/account/index'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
+import { Route as Auth2faRouteImport } from './routes/auth/2fa'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,15 +35,22 @@ const AuthResetPasswordRoute = AuthResetPasswordRouteImport.update({
   path: '/auth/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Auth2faRoute = Auth2faRouteImport.update({
+  id: '/auth/2fa',
+  path: '/auth/2fa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth/2fa': typeof Auth2faRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/account': typeof AccountIndexRoute
   '/auth': typeof AuthIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth/2fa': typeof Auth2faRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/account': typeof AccountIndexRoute
   '/auth': typeof AuthIndexRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth/2fa': typeof Auth2faRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/account/': typeof AccountIndexRoute
   '/auth/': typeof AuthIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth/reset-password' | '/account' | '/auth'
+  fullPaths: '/' | '/auth/2fa' | '/auth/reset-password' | '/account' | '/auth'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth/reset-password' | '/account' | '/auth'
-  id: '__root__' | '/' | '/auth/reset-password' | '/account/' | '/auth/'
+  to: '/' | '/auth/2fa' | '/auth/reset-password' | '/account' | '/auth'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth/2fa'
+    | '/auth/reset-password'
+    | '/account/'
+    | '/auth/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Auth2faRoute: typeof Auth2faRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
   AccountIndexRoute: typeof AccountIndexRoute
   AuthIndexRoute: typeof AuthIndexRoute
@@ -99,11 +115,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/2fa': {
+      id: '/auth/2fa'
+      path: '/auth/2fa'
+      fullPath: '/auth/2fa'
+      preLoaderRoute: typeof Auth2faRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Auth2faRoute: Auth2faRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,
   AccountIndexRoute: AccountIndexRoute,
   AuthIndexRoute: AuthIndexRoute,

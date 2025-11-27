@@ -93,7 +93,7 @@ function RouteComponent() {
         </Tabs.Panel>
 
         <Tabs.Panel value="manage-2fa">
-          <Account2FATab />
+          <Account2FATab hasPasswordAccount={accounts?.some(account => account.providerId === "credential") ?? false} hasTwoFactorEnabled={user.twoFactorEnabled ?? false} />
         </Tabs.Panel>
 
         <Tabs.Panel value="sessions">

@@ -31,7 +31,7 @@ export default function SignInTab({ openEmailVerificationTab, openForgotPassword
         validate: zod4Resolver(signInSchema)
     });
 
-    const handleSignIn = async (data: SignInInput) => {
+    async function handleSignIn(data: SignInInput) {
         // Sign in using email and password
         await authClient.signIn.email({ ...data, callbackURL: import.meta.env.VITE_CALLBACK_URL }, {
             onRequest: async () => {
@@ -56,7 +56,10 @@ export default function SignInTab({ openEmailVerificationTab, openForgotPassword
                 });
                 setLoading(false);
             },
-            onSuccess: () => {
+            onSuccess: (ctx) => {
+                if (ctx.data.twoFactorRedirect)
+                    return; // 2FA flow will handle navigation
+
                 notifications.show({
                     title: "Success",
                     message: "Sign in successful!",

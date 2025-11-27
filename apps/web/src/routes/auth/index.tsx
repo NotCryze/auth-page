@@ -1,4 +1,4 @@
-import { Center, Tabs } from '@mantine/core'
+import { Center, Flex, Tabs } from '@mantine/core'
 import { createFileRoute } from '@tanstack/react-router'
 import SignUpTab from '../../components/auth/sign-up-tab'
 import SignInTab from '../../components/auth/sign-in-tab'
@@ -39,27 +39,27 @@ function RouteComponent() {
   }
 
   return <>
-    <Center h={"100%"} p={"md"}>
+    <Flex justify={"center"} mt={"xl"}>
       <Tabs value={activeTab} onChange={setActiveTab} w={{ base: "100%", sm: 600, lg: 500 }}>
-        {(activeTab === 'sign-in' || activeTab === 'sign-up') && <Tabs.List grow>
-          <Tabs.Tab value="sign-in"><b>Sign In</b></Tabs.Tab>
-          <Tabs.Tab value="sign-up"><b>Sign Up</b></Tabs.Tab>
-        </Tabs.List>}
-        <Tabs.Panel value="sign-in">
-          <SignInTab openEmailVerificationTab={openEmailVerificationTab} openForgotPasswordTab={() => setActiveTab("forgot-password")} />
-        </Tabs.Panel>
-        <Tabs.Panel value="sign-up">
-          <SignUpTab openEmailVerificationTab={openEmailVerificationTab} />
-        </Tabs.Panel>
-        <Tabs.Panel value="verify-email">
-          {activeTab === "verify-email" && (
-            <VerifyEmailTab email={email} />
-          )}
-        </Tabs.Panel>
-        <Tabs.Panel value="forgot-password">
-          <ForgotPasswordTab openSignInTab={() => setActiveTab('sign-in')} />
-        </Tabs.Panel>
-      </Tabs>
-    </Center>
+      {(activeTab === 'sign-in' || activeTab === 'sign-up') && <Tabs.List grow>
+        <Tabs.Tab value="sign-in"><b>Sign In</b></Tabs.Tab>
+        <Tabs.Tab value="sign-up"><b>Sign Up</b></Tabs.Tab>
+      </Tabs.List>}
+      <Tabs.Panel value="sign-in">
+        <SignInTab openEmailVerificationTab={openEmailVerificationTab} openForgotPasswordTab={() => setActiveTab("forgot-password")} />
+      </Tabs.Panel>
+      <Tabs.Panel value="sign-up">
+        <SignUpTab openEmailVerificationTab={openEmailVerificationTab} />
+      </Tabs.Panel>
+      <Tabs.Panel value="verify-email">
+        {activeTab === "verify-email" && (
+          <VerifyEmailTab email={email} />
+        )}
+      </Tabs.Panel>
+      <Tabs.Panel value="forgot-password">
+        <ForgotPasswordTab openSignInTab={() => setActiveTab('sign-in')} />
+      </Tabs.Panel>
+    </Tabs>
+    </Flex>
   </>
 }
