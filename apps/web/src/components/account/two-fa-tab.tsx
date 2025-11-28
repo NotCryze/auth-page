@@ -2,7 +2,7 @@ import { Badge, Flex, Paper, Text, Title } from "@mantine/core"
 import TwoFactorManagement from "./two-factor-management"
 
 
-export default function Account2FATab({
+export default function TwoFATab({
     hasPasswordAccount,
     hasTwoFactorEnabled
 }: {

@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { twoFactor } from "better-auth/plugins";
+import { passkey } from "@better-auth/passkey";
 import { db } from "../db.js";
 
 export const auth = betterAuth({
@@ -57,6 +58,7 @@ export const auth = betterAuth({
     }),
     trustedOrigins: ["http://localhost:3001"],
     plugins: [
-        twoFactor()
+        twoFactor(),
+        passkey(),
     ],
 });

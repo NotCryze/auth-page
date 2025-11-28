@@ -1,5 +1,6 @@
 import { createAuthClient } from "better-auth/react"
 import { twoFactorClient } from "better-auth/plugins"
+import { passkeyClient } from "@better-auth/passkey/client"
 
 export const authClient = createAuthClient({
     baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -12,5 +13,6 @@ export const authClient = createAuthClient({
                 window.location.href = "/auth/2fa";
             }
         }),
+        passkeyClient(),
     ],
 })

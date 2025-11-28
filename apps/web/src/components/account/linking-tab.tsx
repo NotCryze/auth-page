@@ -2,7 +2,7 @@ import { Paper, Title } from "@mantine/core";
 import { SUPPORTED_O_AUTH_PROVIDERS } from "../../lib/o-auth-providers";
 import LinkedAccountCard from "./linked-account-card";
 
-export default function AccountLinkingTab({ accounts }: {
+export default function LinkingTab({ accounts }: {
   accounts?: Array<{
     id: string;
     providerId: string;

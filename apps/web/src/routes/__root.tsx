@@ -13,7 +13,7 @@ function RootLayout() {
             </Group>
         </AppShell.Header>
         <AppShell.Main>
-            <Box h={"calc(100vh - var(--app-shell-header-height, 0px) - var(--app-shell-footer-height, 0px) - var(--mantine-spacing-md) - var(--mantine-spacing-md))"}>
+            <Box mih={"calc(100vh - var(--app-shell-header-height, 0px) - var(--app-shell-footer-height, 0px) - var(--mantine-spacing-md) - var(--mantine-spacing-md))"}>
                 <Outlet />
                 <TanStackRouterDevtools position="bottom-right" />
             </Box>

@@ -6,7 +6,7 @@ import { authClient } from "../../lib/auth-client";
 import { BetterAuthActionButton } from "../auth/better-auth-action-button";
 
 
-export default function AccountSetPassword({ email }: {
+export default function SetPassword({ email }: {
     email: string
 }) {
     const [loading, setLoading] = useState(false);

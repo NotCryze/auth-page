@@ -15,7 +15,7 @@ const accountUpdateSchema = z.object({
 
 type AccountUpdateInput = z.infer<typeof accountUpdateSchema>;
 
-export default function AccountUpdateTab({
+export default function UpdateTab({
   name,
   email
 }: {

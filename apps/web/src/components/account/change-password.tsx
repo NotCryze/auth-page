@@ -24,7 +24,7 @@ const changePasswordSchema = z.object({
 
 type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
 
-export default function AccountChangePassword() {
+export default function ChangePassword() {
 
     const [loading, setLoading] = useState(false);
 

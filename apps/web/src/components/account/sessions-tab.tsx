@@ -7,7 +7,7 @@ import { useRouter } from "@tanstack/react-router";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconX } from "@tabler/icons-react";
 
-export default function AccountSessionsTab({ currentSessionToken, sessions }: {
+export default function SessionsTab({ currentSessionToken, sessions }: {
     currentSessionToken: string,
     sessions?: Session[] | null;
 }) {

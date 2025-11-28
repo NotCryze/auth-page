@@ -1,27 +1,32 @@
 import { Flex, Skeleton, Tabs, type TabsProps } from '@mantine/core';
-import { IconAuth2fa, IconKey, IconLink, IconPassword, IconTrash, IconUser } from '@tabler/icons-react';
+import { IconAuth2fa, IconFingerprint, IconKey, IconLink, IconPassword, IconTrash, IconUser } from '@tabler/icons-react';
 import { createFileRoute, useLoaderData } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
-import Account2FATab from '../../components/account/account-2fa-tab';
 import AccountCard from '../../components/account/account-card';
-import AccountChangePasswordTab from '../../components/account/account-change-password-tab';
-import AccountDeleteTab from '../../components/account/account-delete-tab';
-import AccountLinkingTab from '../../components/account/account-linking-tab';
-import AccountSessionsTab from '../../components/account/account-sessions-tab';
-import AccountUpdateTab from '../../components/account/account-update-tab';
+import ChangePasswordTab from '../../components/account/change-password-tab';
+import DeleteTab from '../../components/account/delete-tab';
+import LinkingTab from '../../components/account/linking-tab';
+import PassKeyManagement from '../../components/account/passkey-management';
+import SessionsTab from '../../components/account/sessions-tab';
+import TwoFATab from '../../components/account/two-fa-tab';
+import UpdateTab from '../../components/account/update-tab';
 import { authClient } from '../../lib/auth-client';
 import { requireAuth } from '../../lib/route-auth';
 
 export const Route = createFileRoute('/account/')({
   beforeLoad: requireAuth,
   loader: async ({ context }) => {
-    const sessions = await authClient.listSessions();
-    const accounts = await authClient.listAccounts();
+    const [sessions, accounts, passkeys] = await Promise.all([
+      authClient.listSessions(),
+      authClient.listAccounts(),
+      authClient.passkey.listUserPasskeys(),
+    ]);
     // await new Promise(resolve => setTimeout(resolve, 3000)); // Promise simulating 3 seconds loading time
     return {
       ...context.session,
       sessions: sessions.data,
       accounts: accounts.data,
+      passkeys: passkeys.data,
     };
   },
   component: RouteComponent,
@@ -36,7 +41,7 @@ export const Route = createFileRoute('/account/')({
 })
 
 function RouteComponent() {
-  const { session, user, sessions, accounts } = useLoaderData({ from: Route.id });
+  const { session, user, sessions, accounts, passkeys } = useLoaderData({ from: Route.id });
   const [activeTab, setActiveTab] = useState<TabsProps['value']>(window.location.hash.substring(1) || 'manage-account-details');
 
   useEffect(() => {
@@ -79,33 +84,38 @@ function RouteComponent() {
           <Tabs.Tab value="manage-account-details"><IconUser /></Tabs.Tab>
           <Tabs.Tab value="change-password"><IconPassword /></Tabs.Tab>
           <Tabs.Tab value="manage-2fa"><IconAuth2fa /></Tabs.Tab>
+          <Tabs.Tab value="manage-passkey"><IconFingerprint /></Tabs.Tab>
           <Tabs.Tab value="sessions"><IconKey /></Tabs.Tab>
           <Tabs.Tab value="linked-accounts"><IconLink /></Tabs.Tab>
           <Tabs.Tab value="delete-account"><IconTrash /></Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="manage-account-details">
-          <AccountUpdateTab {...user} />
+          <UpdateTab {...user} />
         </Tabs.Panel>
 
         <Tabs.Panel value="change-password">
-          <AccountChangePasswordTab email={user.email} hasPasswordAccount={accounts?.some(account => account.providerId === "credential") ?? false} />
+          <ChangePasswordTab email={user.email} hasPasswordAccount={accounts?.some(account => account.providerId === "credential") ?? false} />
         </Tabs.Panel>
 
         <Tabs.Panel value="manage-2fa">
-          <Account2FATab hasPasswordAccount={accounts?.some(account => account.providerId === "credential") ?? false} hasTwoFactorEnabled={user.twoFactorEnabled ?? false} />
+          <TwoFATab hasPasswordAccount={accounts?.some(account => account.providerId === "credential") ?? false} hasTwoFactorEnabled={user.twoFactorEnabled ?? false} />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="manage-passkey">
+          <PassKeyManagement passkeys={passkeys} />
         </Tabs.Panel>
 
         <Tabs.Panel value="sessions">
-          <AccountSessionsTab currentSessionToken={session.token} sessions={sessions} />
+          <SessionsTab currentSessionToken={session.token} sessions={sessions} />
         </Tabs.Panel>
 
         <Tabs.Panel value="linked-accounts">
-          <AccountLinkingTab accounts={accounts} />
+          <LinkingTab accounts={accounts} />
         </Tabs.Panel>
 
         <Tabs.Panel value="delete-account">
-          <AccountDeleteTab />
+          <DeleteTab />
         </Tabs.Panel>
       </Tabs>
     </Flex>
