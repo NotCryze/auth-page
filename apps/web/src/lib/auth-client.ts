@@ -1,4 +1,4 @@
-import { createAuthClient } from "better-auth/client"
+import { createAuthClient } from "better-auth/react"
 import { twoFactorClient } from "better-auth/plugins"
 
 export const authClient = createAuthClient({
