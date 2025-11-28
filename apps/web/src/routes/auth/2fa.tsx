@@ -1,8 +1,8 @@
 import { Flex, Tabs } from '@mantine/core'
 import { createFileRoute } from '@tanstack/react-router'
+import BackupCodesTab from '../../components/auth/2fa/backup-codes-tab'
 import TotpTab from '../../components/auth/2fa/totp-tab'
 import { requireNoAuth } from '../../lib/route-auth'
-import BackupCodesTab from '../../components/auth/2fa/backup-codes-tab'
 
 export const Route = createFileRoute('/auth/2fa')({
   beforeLoad: requireNoAuth,

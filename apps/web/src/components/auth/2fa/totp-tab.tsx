@@ -1,12 +1,12 @@
 import { Button, Center, Checkbox, LoadingOverlay, Paper, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { authClient } from "../../../lib/auth-client"
+import { notifications } from "@mantine/notifications";
+import { IconX } from "@tabler/icons-react";
+import { useNavigate } from "@tanstack/react-router";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useState } from "react";
 import z from "zod";
-import { notifications } from "@mantine/notifications";
-import { IconX } from "@tabler/icons-react";
-import { useNavigate, useRouter } from "@tanstack/react-router";
+import { authClient } from "../../../lib/auth-client";
 
 const totpSchema = z.object({
     code: z.string().length(6, "Invalid code length"),

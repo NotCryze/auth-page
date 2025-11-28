@@ -3,10 +3,10 @@ import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import { IconX } from "@tabler/icons-react";
 import { useNavigate } from "@tanstack/react-router";
-import { authClient } from "../../../lib/auth-client"
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useState } from "react";
 import z from "zod";
+import { authClient } from "../../../lib/auth-client";
 
 const backupCodeSchema = z.object({
     code: z.string().min(1, "Backup code is required"),
