@@ -4,6 +4,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "ESNext",
+    "rootDir": "../..",
     "strict": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
