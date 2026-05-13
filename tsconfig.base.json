@@ -6,11 +6,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {
-      "@db/*": ["packages/db/*"],
-      "@shared/*": ["packages/shared/*"]
-    }
+    "resolveJsonModule": true
   }
 }

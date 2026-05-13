@@ -30,7 +30,7 @@ export default function SignUpTab({ openEmailVerificationTab }: {
     });
 
     const handleSignUp = async (data: SignUpInput) => {
-        const res = await authClient.signUp.email({ ...data, callbackURL: import.meta.env.VITE_CALLBACK_URL }, {
+        await authClient.signUp.email({ ...data, callbackURL: import.meta.env.VITE_CALLBACK_URL }, {
             onRequest: async () => {
                 setLoading(true);
                 // await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate loading state

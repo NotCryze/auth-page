@@ -1,4 +1,4 @@
-import { Center, Flex, Tabs } from '@mantine/core'
+import { Flex, Tabs } from '@mantine/core'
 import { createFileRoute } from '@tanstack/react-router'
 import SignUpTab from '../../components/auth/sign-up-tab'
 import SignInTab from '../../components/auth/sign-in-tab'
