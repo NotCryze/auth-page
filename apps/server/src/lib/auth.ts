@@ -8,20 +8,20 @@ export const auth = betterAuth({
         enabled: true,
         requireEmailVerification: true,
         sendResetPassword: async ({ user, url }) => {
-            console.log(`Send password reset email to ${user.email} with link: ${url}`);
+            console.log(`Sent password reset email to ${user.email} with link: ${url}`);
         },
     },
     user: {
         changeEmail: {
             enabled: true,
             sendChangeEmailVerification: async ({ user, url, newEmail }) => {
-                console.log(`Send email change verification to ${newEmail} with link: ${url}`);
+                console.log(`Sent email change verification to ${newEmail} with link: ${url}`);
             }
         },
         deleteUser: {
             enabled: true,
             sendDeleteAccountVerification: async ({ user, url }) => {
-                console.log(`Send account deletion verification to ${user.email} with link: ${url}`);
+                console.log(`Sent account deletion verification to ${user.email} with link: ${url}`);
             }
         },
     },
@@ -29,7 +29,7 @@ export const auth = betterAuth({
         autoSignInAfterVerification: true,
         sendOnSignUp: true,
         sendVerificationEmail: async ({ user, url }) => {
-            console.log(`Send verification email to ${user.email} with link: ${url}`);
+            console.log(`Sent verification email to ${user.email} with link: ${url}`);
         }
     },
     socialProviders: {
