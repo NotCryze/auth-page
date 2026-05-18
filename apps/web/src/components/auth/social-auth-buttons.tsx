@@ -8,8 +8,8 @@ export default function SocialAuthButtons() {
         async function handleSocialSignIn() {
             return await authClient.signIn.social({
                 provider,
-                callbackURL: "http://localhost:3001/",
-                errorCallbackURL: "http://localhost:3001/auth"
+                callbackURL: import.meta.env.VITE_CALLBACK_URL,
+                errorCallbackURL: `${import.meta.env.VITE_CALLBACK_URL}/auth`
             });
         }
 
